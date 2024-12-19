@@ -56,4 +56,24 @@ public class Queue<T> {
 
         return Optional.of(value);
     }
+
+    public boolean contains(T element) {
+        if (element == null) {
+            throw new IllegalArgumentException("Element cannot be null");
+        }
+
+        return contains(start, element);
+    }
+
+    private boolean contains(Node<T> node, T element) {
+        if (node == null) {
+            return false;
+        }
+
+        if (node.getValue().equals(element)) {
+            return true;
+        }
+
+        return contains(node.getNextNode(), element);
+    }
 }
