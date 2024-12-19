@@ -34,4 +34,18 @@ public class Stack<T> {
 
         return Optional.of(top.getValue());
     }
+
+    public Optional<T> pop() {
+        if (top == null) {
+            return Optional.empty();
+        }
+
+        var value = top.getValue();
+
+        top = top.getNextNode();
+
+        length -= 1;
+
+        return Optional.of(value);
+    }
 }
