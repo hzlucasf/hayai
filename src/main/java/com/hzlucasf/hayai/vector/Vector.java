@@ -1,7 +1,7 @@
 package com.hzlucasf.hayai.vector;
 
 public class Vector<T> {
-    private T[] elements;
+    private Object[] elements = new Object[10];
 
     private int length;
 
