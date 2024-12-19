@@ -2,6 +2,8 @@ package com.hzlucasf.hayai.stack;
 
 import com.hzlucasf.hayai.node.Node;
 
+import java.util.Optional;
+
 public class Stack<T> {
     private Node<T> top;
 
@@ -23,5 +25,13 @@ public class Stack<T> {
         top = new Node<>(element, top);
 
         length += 1;
+    }
+
+    public Optional<T> peek() {
+        if (top == null) {
+            return Optional.empty();
+        }
+
+        return Optional.of(top.getValue());
     }
 }
