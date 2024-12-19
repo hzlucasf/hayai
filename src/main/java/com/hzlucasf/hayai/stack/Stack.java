@@ -10,4 +10,8 @@ public class Stack<T> {
     public int getLength() {
         return length;
     }
+
+    public boolean isEmpty() {
+        return length == 0;
+    }
 }
