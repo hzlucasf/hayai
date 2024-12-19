@@ -2,6 +2,8 @@ package com.hzlucasf.hayai.queue;
 
 import com.hzlucasf.hayai.node.Node;
 
+import java.util.Optional;
+
 public class Queue<T> {
     private Node<T> start;
 
@@ -35,5 +37,23 @@ public class Queue<T> {
         }
 
         length += 1;
+    }
+
+    public Optional<T> dequeue() {
+        if (isEmpty()) {
+            return Optional.empty();
+        }
+
+        var value = start.getValue();
+
+        start = start.getNextNode();
+
+        if (start == null) {
+            end = null;
+        }
+
+        length -= 1;
+
+        return Optional.of(value);
     }
 }
