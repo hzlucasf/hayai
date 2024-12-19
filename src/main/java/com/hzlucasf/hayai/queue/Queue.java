@@ -76,4 +76,24 @@ public class Queue<T> {
 
         return contains(node.getNextNode(), element);
     }
+
+    public int indexOf(T element) {
+        if (element == null) {
+            throw new IllegalArgumentException("Element cannot be null");
+        }
+
+        return indexOf(start, element, 0);
+    }
+
+    private int indexOf(Node<T> node, T element, int index) {
+        if (node == null) {
+            return -1;
+        }
+
+        if (node.getValue().equals(element)) {
+            return index;
+        }
+
+        return indexOf(node.getNextNode(), element, index + 1);
+    }
 }
