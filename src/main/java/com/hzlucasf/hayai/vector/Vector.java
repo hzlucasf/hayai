@@ -26,4 +26,18 @@ public class Vector<T> {
 
         length += 1;
     }
+
+    public boolean contains(T element) {
+        if (element == null) {
+            throw new IllegalArgumentException("Element cannot be null");
+        }
+
+        for (var x : elements) {
+            if (x.equals(element)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
