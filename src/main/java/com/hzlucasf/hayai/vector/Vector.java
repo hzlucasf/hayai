@@ -8,4 +8,22 @@ public class Vector<T> {
     public int getLength() {
         return length;
     }
+
+    public void add(T element) {
+        if (element == null) {
+            throw new IllegalArgumentException("Element cannot be null");
+        }
+
+        if (length == elements.length) {
+            var elements = new Object[this.elements.length * 2];
+
+            System.arraycopy(this.elements, 0, elements, 0, this.elements.length);
+
+            this.elements = elements;
+        }
+
+        elements[length] = element;
+
+        length += 1;
+    }
 }
