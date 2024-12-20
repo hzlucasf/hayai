@@ -40,4 +40,18 @@ public class Vector<T> {
 
         return false;
     }
+
+    public int indexOf(T element) {
+        if (element == null) {
+            throw new IllegalArgumentException("Element cannot be null");
+        }
+
+        for (var i = 0; i < elements.length; i += 1) {
+            if (elements[i].equals(element)) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
 }
