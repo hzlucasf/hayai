@@ -38,4 +38,11 @@ class StackTest {
 
         Assertions.assertEquals(3, stack.getLength());
     }
+
+    @Test
+    public void pushNullElementOnStackTest() {
+        var stack = new Stack<>();
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> stack.push(null));
+    }
 }
