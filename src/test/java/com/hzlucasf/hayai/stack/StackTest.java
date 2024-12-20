@@ -14,4 +14,11 @@ class StackTest {
 
         Assertions.assertFalse(stack.isEmpty());
     }
+
+    @Test
+    public void getLengthOfEmptyStackTest() {
+        var stack = new Stack<>();
+
+        Assertions.assertEquals(0, stack.getLength());
+    }
 }
