@@ -21,4 +21,21 @@ class StackTest {
 
         Assertions.assertEquals(0, stack.getLength());
     }
+
+    @Test
+    public void getLengthOfNotEmptyStackTest() {
+        var stack = new Stack<>();
+
+        stack.push(new Object());
+
+        Assertions.assertEquals(1, stack.getLength());
+
+        stack.push(new Object());
+
+        Assertions.assertEquals(2, stack.getLength());
+
+        stack.push(new Object());
+
+        Assertions.assertEquals(3, stack.getLength());
+    }
 }
