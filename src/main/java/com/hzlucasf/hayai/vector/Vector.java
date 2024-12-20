@@ -1,5 +1,7 @@
 package com.hzlucasf.hayai.vector;
 
+import java.util.Optional;
+
 public class Vector<T> {
     private Object[] elements = new Object[10];
 
@@ -25,6 +27,21 @@ public class Vector<T> {
         elements[length] = element;
 
         length += 1;
+    }
+
+    @SuppressWarnings("unchecked")
+    public Optional<T> get(int index) {
+        if (index < 0) {
+            throw new IllegalArgumentException("Index cannot be negative");
+        }
+
+        for (var i = 0; i < elements.length; i += 1) {
+            if (i == index) {
+                return Optional.of((T) elements[i]);
+            }
+        }
+
+        return Optional.empty();
     }
 
     public boolean contains(T element) {
